@@ -1,0 +1,6 @@
+[Public]
+Object=(Class=Class,MetaClass=Engine.Mutator,Name=BSONS.BSONS,Description="Onslaught, BS Style. Mutator Created by BAF and Sevalecan.")
+Object=(Name=BSONS.BSONS_KeyBinding,Class=Class,MetaClass=XInterface.GUIUserKeyBinding)
+Object=(Class=Class,MetaClass=Engine.Weapon,Name=BSONS.W_FlakCannon_BS)
+Object=(Class=Class,MetaClass=Engine.Weapon,Name=BSONS.W_ONSAVRiL_BS)
+

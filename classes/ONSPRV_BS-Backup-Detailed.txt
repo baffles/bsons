@@ -1,0 +1,131 @@
+class ONSPRV_BS extends ONSPRV;
+
+
+function DriverEnteredVehicle(Vehicle V, Pawn P)               {
+
+         // If someone gets back in the car within the 15 seconds do not detroy the car
+
+         //Make sure its not one of these vehicles, if it is then don't respawn it until the original explodes
+         if ((V.ParentFactory.VehicleClass != class'ASTurret_Minigun') && (V.ParentFactory.VehicleClass != class'ONSStationaryWeaponPawn')) {
+
+                if (V.ParentFactory.VehicleClass != none)   {
+		        V.ParentFactory.VehicleDestroyed(V);
+		        V.ParentFactory = none;
+	            }
+	            }
+
+
+}
+   /*
+simulated function PostNetBeginPlay() {
+Super.PostNetBeginPlay();
+Weapons[0].PlayAnim();
+}
+*/
+
+simulated function DrawHUD(Canvas B)
+{
+	local PlayerController PC;
+
+	PC = PlayerController(Controller);
+	// Don't draw if we are dead, scoreboard is visible, etc
+	if (!bAllowChargingJump || Health < 1 || PC == None || PC.myHUD == None || PC.MyHUD.bShowScoreboard) {
+		return;
+          }
+	super.DrawHUD(B);
+        B.SetDrawColor(0,255,0,0);
+	B.Style = ERenderStyle.STY_Alpha;
+        B.Font = PC.MyHUD.GetFontSizeIndex(B, -1);
+
+        if (EngineRPM > 1800) {
+        B.SetDrawColor(255,0,0,0);            }
+	B.SetPos(B.ClipX * 0.3, B.ClipY * 0.9);
+        B.DrawText("RPMs: " $ EngineRPM);
+
+        //resetting default HUD color as green
+        B.SetDrawColor(0,255,0,0);
+
+        if (CarMPH > 35) {
+        B.SetDrawColor(255,0,0,0);    }
+
+        B.SetPos(B.ClipX * 0.485, B.ClipY * 0.9);
+	B.DrawText("MPH: " $ CarMPH);
+	//B.SetPos(B.ClipX * 0.485, B.ClipY * 1.9);
+    //B.DrawText("UnrealSpeed: " $ );
+        //resetting default HUD color as green
+        B.SetDrawColor(0,255,0,0);
+
+	B.SetPos(B.ClipX * 0.625, B.ClipY * 0.9);
+	B.DrawText("Gear: " $ Gear);
+
+}
+
+defaultproperties
+{
+ //bAutoTurret=True
+ VehicleMass=6.000000
+ FlipTorque=500.000000
+ //WheelSuspensionOffset=-0.010000
+ WheelSuspensionOffset=-0.010000
+ ChassisTorqueScale=0.300000
+ //ChassisTorqueScale=0.150000
+ //EngineBrakeFactor=0.000100
+ //MaxBrakeTorque=40.000000
+/* MaxSteerAngleCurve=(Points=((OutVal=28.000000),(InVal=1000.000000,OutVal=8.000000),(InVal=1200.000000,OutVal=2.500000),(InVal=2500.000000,OutVal=0.9),(InVal=1000000000.000000,OutVal=0.900000)))
+*/
+/* TorqueCurve=(Points=((OutVal=9.000000),(InVal=200.000000,OutVal=10.000000),(InVal=1500.000000,OutVal=11.000000),(InVal=3000.000000,OutVal=11.000000),(InVal=5000.000000,OutVal=15.000000),(InVal=10000.000000)))
+*/
+ WheelLongFrictionScale=1.800000
+ WheelLatFrictionScale=2.700000
+ WheelSuspensionTravel=15.000000
+ ChangeUpPoint=3000.000000
+ ChangeDownPoint=1500.000000
+
+ Lifespan = 0;
+ PassengerWeapons(1)=(WeaponPawnClass=Class'SevTest.SevNGPGunPawn',WeaponBone="Dummy02")
+     Begin Object Class=SVehicleWheel Name=SRRWheel
+         SteerType=VST_Inverted
+         bPoweredWheel=True
+         bHandbrakeWheel=True
+         BoneName="RightRearTIRe"
+         BoneOffset=(X=-15.000000)
+         WheelRadius=34.000000
+         SupportBoneName="RightRearSTRUT"
+     End Object
+     Wheels(0)=SVehicleWheel'SevTest.SevNGP.SRRWheel'
+
+     Begin Object Class=SVehicleWheel Name=SLRWheel
+         SteerType=VST_Inverted
+         bPoweredWheel=True
+         bHandbrakeWheel=True
+         BoneName="LeftRearTIRE"
+         BoneOffset=(X=15.000000)
+         WheelRadius=34.000000
+         SupportBoneName="LeftRearSTRUT"
+     End Object
+     Wheels(1)=SVehicleWheel'SevTest.SevNGP.SLRWheel'
+
+     VehiclePositionString="in a HellBender Denali"
+     VehicleNameString="HellBender Denali"
+
+          Begin Object Class=KarmaParamsRBFull Name=KParamsD
+         KInertiaTensor(0)=1.000000
+         KInertiaTensor(3)=3.000000
+         KInertiaTensor(5)=3.500000
+         KCOMOffset=(X=-0.300000,Z=-0.500000)
+         KLinearDamping=0.050000
+         KAngularDamping=0.050000
+         KStartEnabled=True
+         bKNonSphericalInertia=True
+         bHighDetailOnly=False
+         bClientOnly=False
+         KMaxSpeed=25000.000000
+         bKDoubleTickRate=True
+         bDestroyOnWorldPenetrate=True
+         bDoSafetime=True
+         KFriction=0.500000
+         KImpactThreshold=500.000000
+         //StayUprightStiffness=300.000000
+     End Object
+     KParams=KarmaParamsRBFull'ONSPRV_BS.KParamsD'
+}

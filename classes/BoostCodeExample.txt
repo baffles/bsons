@@ -1,0 +1,44 @@
+// used for boosting the vehicle forward, stolen from teh unreal demolition
+var() float SpeedBoost;
+var() float CurBoost;
+var() bool bBoosting;
+var() float MaxBoostMPH;
+var() float OldCarMPH;
+
+
+function AltFire(optional float F)
+{
+    bBoosting = true;
+    CurBoost = SpeedBoost;
+    bWeaponIsAltFiring = true;
+}
+
+simulated function KApplyForce(out vector Force, out vector Torque)
+{
+    Super.KApplyForce(Force, Torque);
+
+    if (bBoosting == true) {
+    /*  //   unfinished code
+           if (CarMPH < MaxBoostMPH && bVehicleOnGround == true) {
+           OldCarMPH = CarMPH;
+           Force += vector(Rotation * CurBoost);
+           //Force += vector(Rotation) * SpeedBoost;
+           }
+           OldCarMPH = CarMPH;
+           */
+
+           if (CarMPH < MaxBoostMPH && bVehicleOnGround == true) {
+           Force += vector(Rotation) * SpeedBoost;
+           }
+
+        }
+
+}
+
+function VehicleCeaseFire(bool bWasAltFire)
+{
+    if (bWasAltFire)
+    {
+        bBoosting = false;
+    }
+}
