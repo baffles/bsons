@@ -1,4 +1,4 @@
-class ONSPRV_BS extends ONSPRV;
+class ONSPRV_BSta extends ONSPRV;
 
 
 var() float MaxSuspension;
@@ -168,10 +168,72 @@ simulated event Destroyed() {
 */
 
 
+var() float curt, trm, oth;
+var() bool bModTran;
 
 
-// Locked differentials and nitrous boos
 
+function SetTransRatio(int sel, float val) {
+         if (sel == 1) {  // setting LE suspension ratio
+             curt = val;
+             oth = val;
+         }
+
+         curt = oth;
+
+         if (trm < 0 && -trm >= oth) trm = (-oth)+0.005;
+
+         if (bModTran) {
+         curt += trm;
+         }
+         if (sel == 2) {
+             curt = oth;
+         }
+
+         TransRatio = curt;
+}
+
+exec function ToggleTrans() {
+    if (bModTran == false) {
+    bModTran = true;
+    SetTransRatio(0, 0.0);
+    }
+    else {
+    bModTran = false;
+    SetTransRatio(2, 0.0);
+    }
+}
+
+exec function TransUp() {
+    trm += 0.005;
+    SetTransRatio(0, 0.0);
+}
+
+exec function TransDown() {
+    trm -= 0.005;
+    SetTransRatio(0, 0.0);
+}
+
+
+// penscale setter
+exec function SuspHard() {
+local int i;
+  for(i=0;i<Wheels.Length;i++) {
+      Wheels[i].PenScale += 0.1;
+  }
+
+}
+
+exec function SuspSoft() {
+local int i;
+  for(i=0;i<Wheels.Length;i++) {
+      Wheels[i].PenScale -= 0.1;
+  }
+
+}
+
+
+// Locked differentials and nitrous boost
 simulated function VehicleFire(bool bWasAltfire)
 {
     if (bWasAltfire) bWeaponIsAltFiring = true;
@@ -256,6 +318,7 @@ simulated function PostBeginPlay()
     if (WheelSuspensionOffset >= MinSpeedSuspension) {
          ApplySpdVals(true);
     }
+    oth = RegTransRatio;
 }
 
 simulated exec function rstrac() {
@@ -353,11 +416,13 @@ function ServerSuspension() {
 simulated function ApplyHeightVals(bool bForHeight) {
     if (bForHeight) {
         ChassisTorqueScale = HighChassisTorque;
-        TransRatio = HighTransRatio;
+        //TransRatio = HighTransRatio;
+        SetTransRatio(1, HighTransRatio);
     }
     else {
         ChassisTorqueScale = LowChassisTorque;
-        TransRatio = RegTransRatio;
+        //TransRatio = RegTransRatio;
+        SetTransRatio(1, RegTransRatio);
     }
 }
 
@@ -374,6 +439,8 @@ simulated function ApplySpdVals(bool bForSpeed)
     WheelLatFrictionScale = RegularLatScale;
   }
 }
+
+
 
 simulated function DrawHUD(Canvas B)
 {
@@ -418,6 +485,19 @@ simulated function DrawHUD(Canvas B)
     B.DrawText("SlipVel: " $ ts);
     B.SetPos(B.ClipX * 0.6, B.ClipY * 0.860);
     B.DrawText("SpinVel: " $ tl);
+
+    if (bModTran == true) {
+    B.SetDrawColor(0,255,0,0);
+    }
+    else {
+    B.SetDrawColor(255,0,0,0);
+    }
+    B.SetPos(B.ClipX * 0.3, B.ClipY * 0.840);
+    B.DrawText("TransMod: " $ trm);
+
+    B.SetDrawColor(0,0,255,0);
+    B.SetPos(B.ClipX * 0.6, B.ClipY * 0.840);
+    B.DrawText("Suspension Hardness: " $ Wheels[0].PenScale);
 
         //resetting default HUD color as green
         B.SetDrawColor(0,255,0,0);
@@ -531,14 +611,13 @@ defaultproperties
  WheelLatFrictionScale=2.700000
  RegularLatScale=2.700000
  SpeedLatScale=3.000000
- VehicleMass=6.000000
+
  FlipTorque=500.000000
  WheelSuspensionOffset=9.000000
  MinSuspension=29.000000
  MinSpeedSuspension=9.000000
  MaxSuspension=-28.500000
  ChassisTorqueScale=0.300000
- WheelSuspensionTravel=15.000000
  ChangeUpPoint=3000.000000
  ChangeDownPoint=1500.000000
  PassengerWeapons(0)=(WeaponPawnClass=Class'ONSPRVSideGunPawn_BS',WeaponBone="Dummy01")
@@ -552,7 +631,7 @@ defaultproperties
          WheelRadius=34.000000
          SupportBoneName="RightRearSTRUT"
      End Object
-     Wheels(0)=SVehicleWheel'ONSPRV_BS.SRRWheel'
+     Wheels(0)=SVehicleWheel'ONSPRV_BSta.SRRWheel'
 
 
      Begin Object Class=SVehicleWheel Name=SLRWheel
@@ -564,7 +643,7 @@ defaultproperties
          WheelRadius=34.000000
          SupportBoneName="LeftRearSTRUT"
      End Object
-     Wheels(1)=SVehicleWheel'ONSPRV_BS.SLRWheel'
+     Wheels(1)=SVehicleWheel'ONSPRV_BSta.SLRWheel'
 
 
      VehiclePositionString="in a HellBender Denali"
@@ -589,7 +668,7 @@ defaultproperties
          KImpactThreshold=500.000000
          StayUprightStiffness=7000.000000
      End Object
-     KParams=KarmaParamsRBFull'ONSPRV_BS.KParamsD'
+     KParams=KarmaParamsRBFull'ONSPRV_BSta.KParamsD'
 
      NOCharge = 100
      NOChargeRate = 5
@@ -597,6 +676,20 @@ defaultproperties
      MaxBoostMPH = 100
      SpeedBoost = 250
      bBoosting = false
-     JetBoost = 400;
-     bJet = false;
+     JetBoost = 600
+     bJet = false
+     bModTran = false
+     trm = 0.0
+
+     // EXPERIMENTAL:
+     //WheelPenScale=0.900000
+     //WheelSoftness=0.840000
+     VehicleMass=80.000000
+     WheelSuspensionMaxRenderTravel=120.000000
+     WheelSuspensionTravel=120.000000
+     // ORIGINAL:
+     // VehicleMass=6.000000
+     // WheelSuspensionTravel=15.000000
+
+
 }

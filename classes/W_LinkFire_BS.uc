@@ -12,7 +12,7 @@ DefaultProperties
      LinkScale(4)=1.600000
      LinkScale(5)=1.800000
      Damage=14
-//     LinkFlexibility=0.840000
+     LinkFlexibility=0.840000
      bInitAimError=True
      FireRate=0.220000
 }

@@ -7,7 +7,7 @@ class ONSArtillery_BS extends ONSArtillery;
 // Locked differentials
 
 function PostBeginPlay() {
-SetWheelsScale(1.65);
+//SetWheelsScale(1.65);
 }
 simulated function Tick( float Delta )
 {
@@ -79,7 +79,7 @@ DefaultProperties
   ChassisTorqueScale=0.250000
   WheelLongFrictionScale=1.700000
 
-
+  /*
 
     Begin Object Class=SVehicleWheel Name=RWheel6
          bPoweredWheel=True
@@ -156,7 +156,7 @@ DefaultProperties
          SupportBoneAxis=AXIS_X
      End Object
      Wheels(5)=SVehicleWheel'ONSArtillery_BS.LWheel5'
-
+     */
 
 
 

@@ -4,7 +4,7 @@
 // BS
 // Leviathon Onslaught Vehicle
 //=============================================================================
-class ONSMobileAssaultStation_BS extends ONSMobileAssaultStation;
+class ONSMobileAssaultStation_BSa extends ONSMobileAssaultStation;
 
 simulated function DrawHUD(Canvas B)
 {
@@ -48,7 +48,7 @@ simulated function DrawHUD(Canvas B)
 
 
 
-  /*
+
 
 simulated function Tick( float Delta )
 {
@@ -65,7 +65,7 @@ simulated function Tick( float Delta )
       tl += Wheels[i].SpinVel;
   }
 
-    tl = tl/(Wheels.Length);
+    //tl = tl/(Wheels.Length);
     //ts = ts/(Wheels.Length);
     expow = tl/100.0;
 
@@ -73,7 +73,7 @@ simulated function Tick( float Delta )
     for(i=0;i<Wheels.Length;i++) {
        //if (Wheels[i].bWheelOnGround) {
            //Wheels[i].SpinVel = tl;
-           if (Wheels[i].SpinVel < expow*25.0 && Gear > 0) Wheels[i].SpinVel = expow*25.0;
+           if (Wheels[i].SpinVel < expow*20.0 && Gear > 0) Wheels[i].SpinVel = expow*20.0;
        //  Wheels[i].SlipVel = ts;
        //}
        //else {
@@ -84,7 +84,7 @@ simulated function Tick( float Delta )
 }
 
 
-*/
+
 
 
 defaultproperties
@@ -116,5 +116,5 @@ defaultproperties
          KFriction=0.500000
          KImpactThreshold=500.000000
      End Object
-     KParams=KarmaParamsRBFull'ONSMobileAssaultStation_BS.KParams0_BS'
+     KParams=KarmaParamsRBFull'ONSMobileAssaultStation_BSa.KParams0_BS'
 }

@@ -101,7 +101,7 @@ simulated function KApplyForce(out vector Force, out vector Torque)
            OldCarMPH = CarMPH;
            */
 
-           if (CarMPH < MaxBoostMPH && bVehicleOnGround == true)
+           if (CarMPH < MaxBoostMPH /*&& bVehicleOnGround == true*/)
            {
                Force += vector(Rotation) * SpeedBoost;
            }
@@ -139,8 +139,27 @@ defaultproperties
      NOCharge = 100;
      NOChargeRate = 5;
      NOChargeMax = 100;
-     MaxBoostMPH = 100;
-     SpeedBoost = 250;
+     MaxBoostMPH = 150;
+     SpeedBoost = 270;
      bBoosting = false;
      bAllowChargingJump = false;
+     Begin Object Class=KarmaParamsRBFull Name=KParams1
+         KInertiaTensor(0)=1.000000
+         KInertiaTensor(3)=3.000000
+         KInertiaTensor(5)=3.000000
+         KCOMOffset=(X=-0.250000,Z=-0.400000)
+         KLinearDamping=0.050000
+         KAngularDamping=0.050000
+         KStartEnabled=True
+         bKNonSphericalInertia=True
+         bHighDetailOnly=False
+         bClientOnly=False
+         bKDoubleTickRate=True
+         bDestroyOnWorldPenetrate=True
+         bDoSafetime=True
+         KFriction=0.500000
+         KImpactThreshold=700.000000
+         KMaxSpeed=65000.000000
+     End Object
+     KParams=KarmaParamsRBFull'ONSRV_BS.KParams1'
 }
