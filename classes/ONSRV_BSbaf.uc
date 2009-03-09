@@ -288,6 +288,7 @@ defaultproperties
 //     MaxSteerAngleCurve=AWS_4SteeringCurve
 //     SteerSpeed=90.000000
      awsOn=true;
+     awsOnClient=awsOn;
      SteerSpeed=300.000000
 
      Begin Object Class=SVehicleWheel Name=RRWheel
