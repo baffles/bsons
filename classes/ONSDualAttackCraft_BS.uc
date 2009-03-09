@@ -28,8 +28,13 @@ simulated function DrawHUD(Canvas B)
 	B.DrawText("MPH: " $ CopterMPH);
 }
 
-DefaultProperties
+defaultproperties
 {
+     UprightStiffness=200000.000000
+     MaxRiseForce=900.000000
+     EntryRadius=700.000000
+     TPCamDistance=900.000000
      HealthMax=2000.000000
      Health=2000
+     CollisionRadius=340.000000
 }

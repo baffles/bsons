@@ -73,91 +73,10 @@ simulated function DrawHUD(Canvas B)
   B.DrawText("Gear: " $ Gear);
 }
 
-DefaultProperties
+defaultproperties
 {
-  TorqueCurve=(Points=((OutVal=22.000000),(InVal=200.000000,OutVal=23.000000),(InVal=1500.000000,OutVal=24.000000),(InVal=3500.000000)))
-  ChassisTorqueScale=0.250000
-  WheelLongFrictionScale=1.700000
-
-  /*
-
-    Begin Object Class=SVehicleWheel Name=RWheel6
-         bPoweredWheel=True
-         bHandbrakeWheel=True
-         SteerType=VST_Steered
-         BoneName="Wheel_Right01"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(X=-15.000000)
-         WheelRadius=73.000000
-         SupportBoneName="SuspensionRight01"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(0)=SVehicleWheel'ONSArtillery_BS.RWheel6'
-
-     Begin Object Class=SVehicleWheel Name=LWheel6
-         bPoweredWheel=True
-         bHandbrakeWheel=True
-         SteerType=VST_Steered
-         BoneName="Wheel_Left01"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(X=15.000000)
-         WheelRadius=73.000000
-         SupportBoneName="SuspensionLeft01"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(1)=SVehicleWheel'ONSArtillery_BS.LWheel6'
-
-    Begin Object Class=SVehicleWheel Name=RWheel4
-         bPoweredWheel=True
-         bHandbrakeWheel=True
-         BoneName="Wheel_Right02"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(X=-30.000000)
-         WheelRadius=73.000000
-         SupportBoneName="SuspensionRight02"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(2)=SVehicleWheel'ONSArtillery_BS.RWheel4'
-
-     Begin Object Class=SVehicleWheel Name=LWheel4
-         bPoweredWheel=True
-         bHandbrakeWheel=True
-         BoneName="Wheel_Left02"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(X=30.000000)
-         WheelRadius=73.000000
-         SupportBoneName="SuspensionLeft02"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(3)=SVehicleWheel'ONSArtillery_BS.LWheel4'
-
-     Begin Object Class=SVehicleWheel Name=RWheel5
-         bPoweredWheel=True
-         bHandbrakeWheel=True
-         SteerType=VST_Inverted
-         BoneName="Wheel_Right03"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(X=-30.000000)
-         WheelRadius=73.000000
-         SupportBoneName="SuspensionRight03"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(4)=SVehicleWheel'ONSArtillery_BS.RWheel5'
-
-     Begin Object Class=SVehicleWheel Name=LWheel5
-         bPoweredWheel=True
-         bHandbrakeWheel=True
-         SteerType=VST_Inverted
-         BoneName="Wheel_Left03"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(X=30.000000)
-         WheelRadius=73.000000
-         SupportBoneName="SuspensionLeft03"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(5)=SVehicleWheel'ONSArtillery_BS.LWheel5'
-     */
-
-
-
+     WheelLongFrictionScale=1.700000
+     ChassisTorqueScale=0.250000
+     TorqueCurve=(Points=((OutVal=22.000000),(InVal=0.000000,OutVal=23.000000),(InVal=0.000000,OutVal=24.000000),(InVal=3500.000000)))
+     TPCamDistance=875.000000
 }

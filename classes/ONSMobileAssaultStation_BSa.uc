@@ -83,23 +83,18 @@ simulated function Tick( float Delta )
 
 }
 
-
-
-
-
 defaultproperties
 {
-    GearRatios(0)=-0.200000
-    GearRatios(1)=0.200000
-    GearRatios(2)=0.400000
-    NumForwardGears=2
-    HealthMax=10000.000000
-    Health=10000
-    PassengerWeapons(0)=(WeaponPawnClass=Class'ONSMASSideGunPawn_BS',WeaponBone="RightFrontgunAttach")
-    PassengerWeapons(1)=(WeaponPawnClass=Class'ONSMASSideGunPawn_BS',WeaponBone="LeftFrontGunAttach")
-    PassengerWeapons(2)=(WeaponPawnClass=Class'ONSMASSideGunPawn_BS',WeaponBone="RightRearGunAttach")
-    PassengerWeapons(3)=(WeaponPawnClass=Class'ONSMASSideGunPawn_BS',WeaponBone="LeftRearGunAttach")
-    Begin Object Class=KarmaParamsRBFull Name=KParams0_BS
+     GearRatios(2)=0.400000
+     NumForwardGears=2
+     PassengerWeapons(0)=(WeaponPawnClass=Class'bsons.ONSMASSideGunPawn_BS')
+     PassengerWeapons(1)=(WeaponPawnClass=Class'bsons.ONSMASSideGunPawn_BS')
+     PassengerWeapons(2)=(WeaponPawnClass=Class'bsons.ONSMASSideGunPawn_BS')
+     PassengerWeapons(3)=(WeaponPawnClass=Class'bsons.ONSMASSideGunPawn_BS')
+     TPCamDistance=680.000000
+     HealthMax=10000.000000
+     Health=10000
+     Begin Object Class=KarmaParamsRBFull Name=KParams0_BS
          KInertiaTensor(0)=1.260000
          KInertiaTensor(3)=3.099998
          KInertiaTensor(5)=4.499996
@@ -116,5 +111,6 @@ defaultproperties
          KFriction=0.500000
          KImpactThreshold=500.000000
      End Object
-     KParams=KarmaParamsRBFull'ONSMobileAssaultStation_BSa.KParams0_BS'
+     KParams=KarmaParamsRBFull'bsons.ONSMobileAssaultStation_BSa.KParams0_BS'
+
 }

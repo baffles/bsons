@@ -3,9 +3,9 @@
 //-----------------------------------------------------------
 class W_LinkFire_BS extends LinkFire;
 
-DefaultProperties
+defaultproperties
 {
-     BeamEffectClass=Class'W_LinkBeamEffect_BS'
+     BeamEffectClass=Class'bsons.W_LinkBeamEffect_BS'
      LinkScale(1)=0.900000
      LinkScale(2)=1.200000
      LinkScale(3)=1.400000
@@ -13,6 +13,5 @@ DefaultProperties
      LinkScale(5)=1.800000
      Damage=14
      LinkFlexibility=0.840000
-     bInitAimError=True
      FireRate=0.220000
 }

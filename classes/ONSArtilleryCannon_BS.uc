@@ -133,13 +133,12 @@ function Projectile SpawnProjectile(class<Projectile> ProjClass, bool bAltFire)
     return P;
 }
 
-
-defaultproperties {
+defaultproperties
+{
      WeaponCharge=0.000000
      GunnerAttachmentBone="BigGunBase"
+     RotationsPerSecond=0.380000
      FireInterval=0.400000
      AltFireInterval=0.400000
-     ProjectileClass=Class'ONSMortarShell'
-     AltFireProjectileClass=Class'ONSMortarShell'
-     RotationsPerSecond=0.380000
+     AltFireProjectileClass=Class'OnslaughtBP.ONSMortarShell'
 }

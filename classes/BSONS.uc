@@ -363,24 +363,22 @@ simulated function Tick(float DeltaTime)
 
 defaultproperties
 {
-     EnableBeserk=false
+     bAffectPlayers=True
+     RegenPerSec=5
      VehicleEjectMult=1.000000
      FallSpeedMult=1.000000
-     RegenPerSec=5.000000
-     DoEjection=True
-     EnableRegen=True
      UseBSVehics=True
      UnlockVehics=True
      ADText="Autodestroy Vehicle (0=dont)"
      ADHelp="Time (in seconds) until a vehicle is destroyed after everyone gets out of it (0 = disable)"
-     EBText="Enable Beserk Mode";
-     EBHelp="Makes weapons insanely fast and powerful";
+     EBText="Enable Beserk Mode"
+     EBHelp="Makes weapons insanely fast and powerful"
      DoEjText="Enable Ejection"
      DoEjHelp="Should automatic ejection be enabled?"
+     ERText="Enable Health Regeneration"
+     ERHelp="Should automatic health regeneration be enabled?"
      RPSText="Health Regen Per Second"
-     RPSHelp="How much health to recover per second (if regen is enabled)";
-     ERText="Enable Health Regeneration";
-     ERHelp="Should automatic health regeneration be enabled?";
+     RPSHelp="How much health to recover per second (if regen is enabled)"
      MultText="Eject Momentum Multiplier"
      MultHelp="Multiplier to increase the velocity of players when ejecting."
      FallSpeedText="Fall Speed Multiplier (0 = no fall damage)"
@@ -392,9 +390,6 @@ defaultproperties
      bAddToServerPackages=True
      FriendlyName="BS Onslaught V0.5"
      Description="Onslaught, BS Style. Mutator Created by BAF and Sevalecan."
-
-     bAffectSpectators=false
-     bAffectPlayers=true
+     bAlwaysRelevant=True
      RemoteRole=ROLE_SimulatedProxy
-     bAlwaysRelevant=true
 }

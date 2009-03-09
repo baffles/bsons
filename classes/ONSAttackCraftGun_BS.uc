@@ -9,10 +9,6 @@ class ONSAttackCraftGun_BS extends ONSAttackCraftGun;
 
 defaultproperties
 {
-//     FireInterval=0.010000
-//     AltFireInterval=0.100000
-//       FireInterval=0.200000
-//       AltFireInterval=0.50000
-       AltFireSoundClass=Sound'ONSVehicleSounds-S.Tank.TankFire01'
-       AltFireProjectileClass=Class'Onslaught.ONSRocketProjectile'
+     AltFireSoundClass=Sound'ONSVehicleSounds-S.Tank.TankFire01'
+     AltFireProjectileClass=Class'Onslaught.ONSRocketProjectile'
 }

@@ -3,8 +3,8 @@
 //-----------------------------------------------------------
 class W_FlakCannonPickup_BS extends FlakCannonPickup;
 
-DefaultProperties
+defaultproperties
 {
-     InventoryType=Class'W_FlakCannon_BS'
+     InventoryType=Class'bsons.W_FlakCannon_BS'
      PickupMessage="You got the BS Flak Cannon."
 }

@@ -9,5 +9,5 @@
 
 defaultproperties
 {
-     GunClass=Class'ONSPRVRearGun_BS'
+     GunClass=Class'bsons.ONSPRVRearGun_BS'
 }

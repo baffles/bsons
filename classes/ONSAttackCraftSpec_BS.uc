@@ -34,12 +34,8 @@ simulated function DrawHUD(Canvas B)
 
 defaultproperties
 {
-     DriverWeapons(0)=(WeaponClass=Class'ONSAttackCraftSpecGun_BS')
-     //DriverWeapons(1)=(WeaponClass=Class'ONSAttackCraftGun_BS')
-     //DriverWeapons(2)=(WeaponClass=Class'ONSAttackCraftGun_BS')
-     //DriverWeapons(3)=(WeaponClass=Class'ONSAttackCraftGun_BS')
-     //DriverWeapons(4)=(WeaponClass=Class'ONSAttackCraftGun_BS')
-     //DriverWeapons(5)=(WeaponClass=Class'ONSAttackCraftGun_BS')
+     DriverWeapons(0)=(WeaponClass=Class'bsons.ONSAttackCraftSpecGun_BS')
+     TPCamDistance=1000.000000
      VehiclePositionString="in a Valasa Raptor"
      VehicleNameString="Valasa Raptor"
      HealthMax=2000.000000

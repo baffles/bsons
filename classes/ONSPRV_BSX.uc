@@ -5,5 +5,6 @@ Super.KApplyForce(Force, Torque);
 Force += vect(0,0,1) * 30;
 }
 
-defaultproperties {
+defaultproperties
+{
 }

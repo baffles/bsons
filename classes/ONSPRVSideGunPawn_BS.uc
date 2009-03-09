@@ -9,6 +9,6 @@ class ONSPRVSideGunPawn_BS extends ONSPRVSideGunPawn;
 
 defaultproperties
 {
-     GunClass=Class'ONSPRVSideGun_BS'
+     GunClass=Class'bsons.ONSPRVSideGun_BS'
      TPCamDistance=550.000000
 }

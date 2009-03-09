@@ -119,8 +119,7 @@ simulated function PostRender( canvas Canvas )
 }
 */
 
-DefaultProperties
+defaultproperties
 {
-  bVisible=True
-  suspchange=false
+     bVisible=True
 }

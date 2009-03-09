@@ -17,6 +17,7 @@ simulated function VehicleFire(bool bWasAltfire)
     bWeaponIsAltFiring = true;
     bLockDif = true;
     }
+    /*
     else {
     Wheels[1].SuspensionOffset = 30;
     Wheels[2].SuspensionOffset = 30;
@@ -27,14 +28,15 @@ simulated function VehicleFire(bool bWasAltfire)
     Wheels[4].SuspensionOffset -= 10;
     Wheels[7].SuspensionOffset -= 10;
     }
+    */
 }
 simulated function VehicleCeaseFire(bool bWasAltFire)
 {
-    if (!bWasAltFire)
+    /*if (!bWasAltFire)
     {
         bJet = false;
-    }
-    else bLockDif = false;
+    }*/
+    if (bWasAltFire) bLockDif = false;
     Super.VehicleCeaseFire(bWasAltFire);
 }
 
@@ -49,13 +51,13 @@ simulated function Tick( float Delta )
 
   //Wheels[3].CurrentRotation = Wheels[2].CurrentRotation*1.5;
   //Wheels[7].CurrentRotation = Wheels[6].CurrentRotation*1.5;
-
+  /*
   if (bJet) {
   for(i=0;i<Wheels.Length;i++) {
       Wheels[i].SpinVel = 15.0;
   }
   }
-
+  */
   for(i=0;i<Wheels.Length;i++) {
       tl += Wheels[i].SpinVel;
       ts += Wheels[i].SlipVel;
@@ -217,60 +219,12 @@ simulated function DrawHUD(Canvas B)
   B.DrawText("R1 Adhesion: " $ Wheels[0].Adhesion);
 }
 
-DefaultProperties
+defaultproperties
 {
- RegTraction=2.000000
- MinSuspension=39.000000
- MaxSuspension=-38.500000
-// left wheel extra steering
-     Begin Object Class=SVehicleWheel Name=xLWheel2
-         SteerType=VST_Steered
-         bPoweredWheel=True
-         BoneName="8WheelerWheel04"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(Y=7.000000)
-         WheelRadius=44.000000
-         SupportBoneName="Suspension_Left2"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(5)=SVehicleWheel'ONSShockTank_BS.xLWheel2'
-
-     Begin Object Class=SVehicleWheel Name=xLWheel3
-         SteerType=VST_Inverted
-         bPoweredWheel=True
-         BoneName="8WheelerWheel06"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(Y=7.000000)
-         WheelRadius=44.000000
-         SupportBoneName="Suspension_Left3"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(6)=SVehicleWheel'ONSShockTank_BS.xLWheel3'
-     // do the same for the right wheels
-
-      Begin Object Class=SVehicleWheel Name=xRWheel2
-         SteerType=VST_Steered
-         bPoweredWheel=True
-         BoneName="8WheelerWheel03"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(Y=7.000000)
-         WheelRadius=44.000000
-         SupportBoneName="Suspension_Right2"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(1)=SVehicleWheel'ONSShockTank_BS.xRWheel2'
-
-     Begin Object Class=SVehicleWheel Name=xRWheel3
-         SteerType=VST_Inverted
-         bPoweredWheel=True
-         BoneName="8WheelerWheel05"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(Y=7.000000)
-         WheelRadius=44.000000
-         SupportBoneName="Suspension_Right3"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(2)=SVehicleWheel'ONSShockTank_BS.xRWheel3'
-
-
+     MaxSuspension=-38.500000
+     MinSuspension=39.000000
+     RegTraction=2.000000
+     WheelSuspensionOffset=-16.000000
+     DriverWeapons(0)=(WeaponClass=Class'bsons.ONSShockTankCannon_BSa')
+     TPCamDistance=775.000000
 }

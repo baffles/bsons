@@ -34,8 +34,8 @@ simulated function DrawHUD(Canvas B)
 defaultproperties
 {
      MaxThrust=150.000000
-     DriverWeapons(0)=(WeaponClass=Class'ONSHoverTankCannon_BS')
-     TPCamDistance=1200.000000
+     DriverWeapons(0)=(WeaponClass=Class'bsons.ONSHoverTankCannon_BS')
+     TPCamDistance=600.000000
      GroundSpeed=900.000000
      HealthMax=1000.000000
      Health=1000

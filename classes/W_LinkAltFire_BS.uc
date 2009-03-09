@@ -3,7 +3,6 @@
 //-----------------------------------------------------------
 class W_LinkAltFire_BS extends LinkAltFire;
 
-DefaultProperties
+defaultproperties
 {
-
 }

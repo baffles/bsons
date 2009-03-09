@@ -71,58 +71,7 @@ simulated function DrawHUD(Canvas B)
   B.DrawText("Gear: " $ Gear);
 }
 
-DefaultProperties
+defaultproperties
 {
-
-// left wheel extra steering
-     Begin Object Class=SVehicleWheel Name=xLWheel2
-         SteerType=VST_Steered
-         bPoweredWheel=True
-         BoneName="8WheelerWheel04"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(Y=7.000000)
-         WheelRadius=44.000000
-         SupportBoneName="Suspension_Left2"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(5)=SVehicleWheel'ONSShockTank_BS.xLWheel2'
-
-     Begin Object Class=SVehicleWheel Name=xLWheel3
-         SteerType=VST_Inverted
-         bPoweredWheel=True
-         BoneName="8WheelerWheel06"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(Y=7.000000)
-         WheelRadius=44.000000
-         SupportBoneName="Suspension_Left3"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(6)=SVehicleWheel'ONSShockTank_BS.xLWheel3'
-     // do the same for the right wheels
-
-      Begin Object Class=SVehicleWheel Name=xRWheel2
-         SteerType=VST_Steered
-         bPoweredWheel=True
-         BoneName="8WheelerWheel03"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(Y=7.000000)
-         WheelRadius=44.000000
-         SupportBoneName="Suspension_Right2"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(1)=SVehicleWheel'ONSShockTank_BS.xRWheel2'
-
-     Begin Object Class=SVehicleWheel Name=xRWheel3
-         SteerType=VST_Inverted
-         bPoweredWheel=True
-         BoneName="8WheelerWheel05"
-         BoneRollAxis=AXIS_Y
-         BoneOffset=(Y=7.000000)
-         WheelRadius=44.000000
-         SupportBoneName="Suspension_Right3"
-         SupportBoneAxis=AXIS_X
-     End Object
-     Wheels(2)=SVehicleWheel'ONSShockTank_BS.xRWheel3'
-
-
+     TPCamDistance=775.000000
 }

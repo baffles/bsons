@@ -3,7 +3,7 @@
 //-----------------------------------------------------------
 class ONSMASSideGun_BS extends ONSMASSideGun;
 
-DefaultProperties
+defaultproperties
 {
-      ProjectileClass=Class'Onslaught.ONSRocketProjectile'
+     ProjectileClass=Class'Onslaught.ONSRocketProjectile'
 }

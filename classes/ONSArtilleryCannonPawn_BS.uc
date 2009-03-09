@@ -6,9 +6,8 @@ Gun.CurrentAim = VehicleBase.Rotation;
 return Super.KDriverLeave(bForceLeave);
 }
 
-
-defaultproperties {
-     CameraBone="REARgunTURRET"
-     GunClass=Class'ONSArtilleryCannon_BS'
-     bHasAltFire=False
+defaultproperties
+{
+     GunClass=Class'bsons.ONSArtilleryCannon_BS'
+     TPCamDistance=350.000000
 }

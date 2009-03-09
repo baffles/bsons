@@ -26,5 +26,5 @@ class ONSBombDropper_BS extends ONSBombDropper;
 defaultproperties
 {
      bAimable=True
-     ProjectileClass=Class'RedeemerProjectile_BS'
+     ProjectileClass=Class'bsons.RedeemerProjectile_BS'
 }

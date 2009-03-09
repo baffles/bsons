@@ -575,80 +575,69 @@ Force += vector(Rotation) * Jetboost;
         }
 }
 
-
-
 defaultproperties
 {
- TorqueCurve=(Points=((OutVal=9.000000),(InVal=200.000000,OutVal=10.000000),(InVal=1500.000000,OutVal=11.000000),(InVal=3800.000000)))
- RegularTorqueCurve=(Points=((OutVal=9.000000),(InVal=200.000000,OutVal=10.000000),(InVal=1500.000000,OutVal=11.000000),(InVal=3800.000000)));
- //SpeedTorqueCurve=(Points=((OutVal=9.000000),(InVal=200.000000,OutVal=10.000000),(InVal=1500.000000,OutVal=11.000000),(InVal=3500.000000,Outval=12.000000),(InVal=5500.000000,OutVal=16.000000),(InVal=10000.000000)))
- SpeedTorqueCurve=(Points=((OutVal=12.000000),(InVal=200.000000,OutVal=13.000000),(InVal=1500.000000,OutVal=14.000000),(InVal=3500.000000,Outval=15.000000),(InVal=5500.000000,OutVal=19.000000),(InVal=10000.000000)))
- MaxSteerAngleCurve=(Points=((OutVal=25.000000),(InVal=1000.000000,OutVal=8.000000),(InVal=2200.000000,OutVal=1.300000),(InVal=2700.000000,OutVal=0.9000000),(InVal=1000000000.000000,OutVal=0.900000)))
- SpeedSteerCurve=(Points=((OutVal=25.000000),(InVal=1000.000000,OutVal=8.000000),(InVal=2200.000000,OutVal=6.00000),(InVal=2700.000000,OutVal=4.0000000),(InVal=1000000000.000000,OutVal=2.900000)))
- RegularSteerCurve=(Points=((OutVal=25.000000),(InVal=1000.000000,OutVal=8.000000),(InVal=2200.000000,OutVal=1.300000),(InVal=2700.000000,OutVal=0.9000000),(InVal=1000000000.000000,OutVal=0.900000)))
-
- RegTransRatio=0.110000
- HighTransRatio=0.02000
- HighChassisTorque=0.0
- LowChassisTorque=0.300000
-
- RegWheelRadius=34.0
- RegWheelScale=1.0
- BigWheelScale=1.5
- BigWheelRadius=51.0
-
- RegTraction=1.100000
-
-
- //maxveh=10
- //vehtot=0
- //bAttachMode=false
- //bCalled=false
-
-
-
- WheelLongFrictionScale=1.800000
- WheelLatFrictionScale=2.700000
- RegularLatScale=2.700000
- SpeedLatScale=3.000000
-
- FlipTorque=500.000000
- WheelSuspensionOffset=9.000000
- MinSuspension=29.000000
- MinSpeedSuspension=9.000000
- MaxSuspension=-28.500000
- ChassisTorqueScale=0.300000
- ChangeUpPoint=3000.000000
- ChangeDownPoint=1500.000000
- PassengerWeapons(0)=(WeaponPawnClass=Class'ONSPRVSideGunPawn_BS',WeaponBone="Dummy01")
- PassengerWeapons(1)=(WeaponPawnClass=Class'ONSArtilleryCannonPawn_BS',WeaponBone="Dummy02")
+     MaxSuspension=-28.500000
+     MinSuspension=29.000000
+     MinSpeedSuspension=9.000000
+     SpeedTorqueCurve=(Points=((OutVal=12.000000),(InVal=200.000000,OutVal=13.000000),(InVal=1500.000000,OutVal=14.000000),(InVal=3500.000000,OutVal=15.000000),(InVal=5500.000000,OutVal=19.000000),(InVal=10000.000000)))
+     RegularTorqueCurve=(Points=((OutVal=9.000000),(InVal=200.000000,OutVal=10.000000),(InVal=1500.000000,OutVal=11.000000),(InVal=3800.000000)))
+     SpeedSteerCurve=(Points=((OutVal=25.000000),(InVal=1000.000000,OutVal=8.000000),(InVal=2200.000000,OutVal=6.000000),(InVal=2700.000000,OutVal=4.000000),(InVal=1000000000.000000,OutVal=2.900000)))
+     RegularSteerCurve=(Points=((OutVal=25.000000),(InVal=1000.000000,OutVal=8.000000),(InVal=2200.000000,OutVal=1.300000),(InVal=2700.000000,OutVal=0.900000),(InVal=1000000000.000000,OutVal=0.900000)))
+     RegularLatScale=2.700000
+     SpeedLatScale=3.000000
+     RegTransRatio=0.110000
+     HighTransRatio=0.020000
+     LowChassisTorque=0.300000
+     RegWheelRadius=34.000000
+     RegWheelScale=1.000000
+     BigWheelScale=1.500000
+     BigWheelRadius=51.000000
+     RegTraction=1.100000
+     NOCharge=100
+     NOChargeRate=5
+     NOChargeMax=100
+     MaxBoostMPH=100
+     SpeedBoost=250
+     Jetboost=600
+     WheelLongFrictionScale=1.800000
+     WheelLatFrictionScale=2.700000
+     WheelSuspensionTravel=15.000000
+     WheelSuspensionOffset=9.000000
+     ChassisTorqueScale=0.300000
+     MaxSteerAngleCurve=(Points=((OutVal=0.000000),(InVal=1000.000000,OutVal=0.000000),(InVal=2200.000000,OutVal=1.300000),(InVal=2700.000000,OutVal=0.900000),(InVal=1000000000.000000,OutVal=0.900000)))
+     TorqueCurve=(Points=((OutVal=0.000000),(InVal=0.000000,OutVal=0.000000),(InVal=0.000000,OutVal=0.000000),(InVal=3800.000000)))
+     ChangeUpPoint=3000.000000
+     ChangeDownPoint=1500.000000
+     PassengerWeapons(0)=(WeaponPawnClass=Class'bsons.ONSPRVSideGunPawn_BS')
+     PassengerWeapons(1)=(WeaponPawnClass=Class'bsons.ONSArtilleryCannonPawn_BS')
      Begin Object Class=SVehicleWheel Name=SRRWheel
-         SteerType=VST_Inverted
          bPoweredWheel=True
          bHandbrakeWheel=True
+         SteerType=VST_Inverted
          BoneName="RightRearTIRe"
          BoneOffset=(X=-15.000000)
          WheelRadius=34.000000
          SupportBoneName="RightRearSTRUT"
      End Object
-     Wheels(0)=SVehicleWheel'ONSPRV_BS.SRRWheel'
-
+     Wheels(0)=SVehicleWheel'bsons.ONSPRV_BS.SRRWheel'
 
      Begin Object Class=SVehicleWheel Name=SLRWheel
-         SteerType=VST_Inverted
          bPoweredWheel=True
          bHandbrakeWheel=True
+         SteerType=VST_Inverted
          BoneName="LeftRearTIRE"
          BoneOffset=(X=15.000000)
          WheelRadius=34.000000
          SupportBoneName="LeftRearSTRUT"
      End Object
-     Wheels(1)=SVehicleWheel'ONSPRV_BS.SLRWheel'
+     Wheels(1)=SVehicleWheel'bsons.ONSPRV_BS.SLRWheel'
 
-
+     VehicleMass=6.000000
+     FlipTorque=500.000000
+     TPCamDistance=975.000000
      VehiclePositionString="in a HellBender Denali"
      VehicleNameString="HellBender Denali"
-
      Begin Object Class=KarmaParamsRBFull Name=KParamsD
          KInertiaTensor(0)=1.000000
          KInertiaTensor(3)=3.000000
@@ -658,38 +647,16 @@ defaultproperties
          KAngularDamping=0.050000
          KStartEnabled=True
          bKNonSphericalInertia=True
+         KMaxSpeed=25000.000000
          bHighDetailOnly=False
          bClientOnly=False
-         KMaxSpeed=25000.000000
          bKDoubleTickRate=True
          bDestroyOnWorldPenetrate=True
          bDoSafetime=True
+         StayUprightStiffness=7000.000000
          KFriction=0.500000
          KImpactThreshold=500.000000
-         StayUprightStiffness=7000.000000
      End Object
-     KParams=KarmaParamsRBFull'ONSPRV_BS.KParamsD'
-
-     NOCharge = 100
-     NOChargeRate = 5
-     NOChargeMax = 100
-     MaxBoostMPH = 100
-     SpeedBoost = 250
-     bBoosting = false
-     JetBoost = 600
-     bJet = false
-     bModTran = false
-     trm = 0.0
-
-     // EXPERIMENTAL:
-     //WheelPenScale=0.900000
-     //WheelSoftness=0.840000
-     //VehicleMass=80.000000
-     //WheelSuspensionMaxRenderTravel=120.000000
-     //WheelSuspensionTravel=120.000000
-     // ORIGINAL:
-      VehicleMass=6.000000
-      WheelSuspensionTravel=15.000000
-
+     KParams=KarmaParamsRBFull'bsons.ONSPRV_BS.KParamsD'
 
 }

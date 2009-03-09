@@ -111,6 +111,7 @@ simulated function KApplyForce(out vector Force, out vector Torque)
 
 simulated function Tick(float Delta)
 {
+    Super.Tick(Delta);
     if(!bBoosting && NOCharge < NOChargeMax)
     {
         if(NOCharge + NOChargeRate > NOChargeMax)
@@ -125,24 +126,23 @@ simulated function Tick(float Delta)
 
 defaultproperties
 {
+     NOCharge=100
+     NOChargeRate=5
+     NOChargeMax=100
+     MaxBoostMPH=150
+     SpeedBoost=270
      GearRatios(2)=0.600000
      GearRatios(3)=0.800000
      GearRatios(4)=0.990000
      TransRatio=0.550000
      ChangeUpPoint=1900.000000
      bDoStuntInfo=False
-     DriverWeapons(0)=(WeaponClass=Class'ONSRVWebLauncher_BS')
+     DriverWeapons(0)=(WeaponClass=Class'bsons.ONSRVWebLauncher_BS')
+     TPCamDistance=675.000000
      GroundSpeed=9000.000000
      HealthMax=700.000000
      Health=700
      bCanTeleport=True
-     NOCharge = 100;
-     NOChargeRate = 5;
-     NOChargeMax = 100;
-     MaxBoostMPH = 150;
-     SpeedBoost = 270;
-     bBoosting = false;
-     bAllowChargingJump = false;
      Begin Object Class=KarmaParamsRBFull Name=KParams1
          KInertiaTensor(0)=1.000000
          KInertiaTensor(3)=3.000000
@@ -152,6 +152,7 @@ defaultproperties
          KAngularDamping=0.050000
          KStartEnabled=True
          bKNonSphericalInertia=True
+         KMaxSpeed=65000.000000
          bHighDetailOnly=False
          bClientOnly=False
          bKDoubleTickRate=True
@@ -159,7 +160,7 @@ defaultproperties
          bDoSafetime=True
          KFriction=0.500000
          KImpactThreshold=700.000000
-         KMaxSpeed=65000.000000
      End Object
-     KParams=KarmaParamsRBFull'ONSRV_BS.KParams1'
+     KParams=KarmaParamsRBFull'bsons.ONSRV_BS.KParams1'
+
 }

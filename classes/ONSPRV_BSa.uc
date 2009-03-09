@@ -103,11 +103,6 @@ simulated function Tick( float Delta )
         bBoosting = false;
 }
 
-
-
-
-
-DefaultProperties
+defaultproperties
 {
-
 }

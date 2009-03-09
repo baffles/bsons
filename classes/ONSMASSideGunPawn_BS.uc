@@ -3,7 +3,7 @@
 //-----------------------------------------------------------
 class ONSMASSideGunPawn_BS extends ONSMASSideGunPawn;
 
-DefaultProperties
+defaultproperties
 {
-     GunClass=Class'ONSMASSideGun_BS'
+     GunClass=Class'bsons.ONSMASSideGun_BS'
 }

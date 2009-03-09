@@ -35,8 +35,9 @@ simulated function DrawHUD(Canvas B)
 defaultproperties
 {
      JumpDelay=2.000000
-     DriverWeapons(0)=(WeaponClass=Class'ONSHoverBikePlasmaGun_BS')
+     DriverWeapons(0)=(WeaponClass=Class'bsons.ONSHoverBikePlasmaGun_BS')
      EntryRadius=200.000000
+     TPCamDistance=1100.000000
      ObjectiveGetOutDist=130.000000
      HealthMax=250.000000
      Health=250
