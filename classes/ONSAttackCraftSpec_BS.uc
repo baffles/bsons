@@ -40,4 +40,5 @@ defaultproperties
      VehicleNameString="Valasa Raptor"
      HealthMax=2000.000000
      Health=2000
+     IdleSound=Sound'ONSVehicleSounds-S.MAS.MASEng01'
 }
