@@ -13,17 +13,24 @@ var int MaxBoostMPH;
 var int SpeedBoost;
 var bool bBoosting;
 var bool awsOn;
+var bool awsOnClient;
 var InterpCurve AWS_4SteeringCurve;
 var InterpCurve AWS_2SteeringCurve;
 var InterpCurve AWS_4SteeringTorque;
 var InterpCurve AWS_2SteeringTorque;
+
+replication
+{
+    reliable if (bNetDirty && Role == ROLE_AUTHORITY)
+        awsOnClient;
+}
 
 function int LimitPitch(int pitch)
 {
 	return pitch;
 }
 
-function SetupSteering()
+simulated function SetupSteering()
 {
    local int i;
 
@@ -139,8 +146,12 @@ function VehicleFire(bool bWasAltFire)
      if(bWasAltFire)
      {
 //          bBoosting = true;
-          awsOn = !awsOn;
-          SetupSteering();
+          if(Role == ROLE_Authority)
+          {
+              awsOn = !awsOn;
+              awsOnClient = awsOn;
+              SetupSteering();
+          }
      }
      else
      {
@@ -195,6 +206,12 @@ simulated function Tick(float Delta)
     }
     if(bBoosting && NOCharge <= 0)
         bBoosting = false;
+
+    if(awsOn != awsOnClient && Role < ROLE_Authority)
+    {
+         awsOn = awsOnClient;
+         SetupSteering();
+    }
 
     Super.Tick(Delta);
 }
